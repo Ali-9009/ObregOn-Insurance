@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+
+/* variables */
+:root {
+    --primary-color: #007AAE;
+    --secondary-color: #0B4066;
+    --text-color: #636C7B;
+}
+
+
