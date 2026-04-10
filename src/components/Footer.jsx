@@ -14,16 +14,16 @@ export default function Footer() {
     ];
 
     const insuranceLinks = [
-        { name: "Home Insurance", path: "/insurance/home" },
-        { name: "Auto Insurance", path: "/insurance/auto" },
-        { name: "Commercial Insurance", path: "/insurance/commercial" },
-        { name: "Life Insurance", path: "/insurance/life" },
-        { name: "Renters Insurance", path: "/insurance/renters" },
-        { name: "Flood Insurance", path: "/insurance/flood" },
+        { name: "Home Insurance", path: "/homeInsurance" },
+        { name: "Auto Insurance", path: "/autoInsurance" },
+        { name: "Commercial Insurance", path: "/commercialInsurance" },
+        { name: "Life Insurance", path: "/lifeInsurance" },
+        { name: "Renters Insurance", path: "/rentersInsurance" },
+        { name: "Flood Insurance", path: "/floodInsurance" },
     ];
 
     const footerLinks = [
-        { name: "Privacy Policy", path: "/privacy-policy" },
+        { name: "Privacy Policy", path: "/privacyPolicy" },
         { name: "DMCA Policy", path: "/dmca" },
         { name: "Make a Payment", path: "/payment" },
     ];
@@ -35,7 +35,9 @@ export default function Footer() {
 
                     {/* LOGO */}
                     <div>
-                        <img src="/assets/logo-1.png" className="w-30" alt="logo" />
+                        <Link to="/">
+                            <img src="/assets/logo-1.png" className="w-30" alt="logo" />
+                        </Link>
                     </div>
 
                     {/* QUICK LINKS */}

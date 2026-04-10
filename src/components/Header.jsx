@@ -55,7 +55,7 @@ export default function Header() {
 
             {/* Sticky Navbar */}
             <div
-                className={`bg-white transition-all duration-300 ${sticky
+                className={`bg-white transition-all border-b border-gray-300 duration-300 ${sticky
                         ? "fixed top-0 left-0 w-full shadow-md z-50 animate-slideDown"
                         : "relative"
                     }`}
@@ -63,7 +63,9 @@ export default function Header() {
                 <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
                     {/* Logo */}
                     <div className="flex items-center gap-2">
-                        <img src="/assets/logo.png" className="w-26" alt="" />
+                        <Link to="/">
+                            <img src="/assets/logo.png" className="w-26" alt="" />
+                        </Link>
                     </div>
 
                     {/* Desktop Nav */}
@@ -81,19 +83,19 @@ export default function Header() {
 
                     {/* Right Side */}
                     <div className="hidden lg:flex items-center gap-4">
-                        <Button text="Login"/>
+                        <Button to="/login" text="Login"/>
                         <div className="flex items-center gap-2 border px-3 py-1 rounded-full text-sm">
                             🇺🇸 <span>EN</span>
                         </div>
                     </div>
 
                     {/* Mobile Menu Button */}
-                    <button
+                    <Button
                         className="lg:hidden"
                         onClick={() => setOpen(true)}
                     >
                         <Menu />
-                    </button>
+                    </Button>
                 </div>
             </div>
 
