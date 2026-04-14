@@ -24,9 +24,9 @@ export default function RentersInsurance() {
                 "Water damage (non-flood)",
             ]}
             whyData={[
-                { title: "Personal Attention", desc: "We tailor plans for you." },
-                { title: "Competitive Rates", desc: "Affordable coverage." },
-                { title: "Claims Support", desc: "We help when you need it." },
+                { title: "Personal Attention", desc: "Every client gets a dedicated agent who understands their unique coverage needs." },
+                { title: "Competitive Rates", desc: "We partner with top-rated carriers to find you the best coverage at the best price." },
+                { title: "Claims Support", desc: "When you need us most, our team guides you through every step of the claims process.." },
             ]}
         />
     );

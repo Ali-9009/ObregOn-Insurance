@@ -59,7 +59,7 @@ export default function Login() {
                 </div>
 
                 {/* Button */}
-                <Button className="w-full" text="Login"/> 
+                <Button className="w-full text-center" text="Login" to="/dashboard"/> 
 
                 {/* Signup */}
                 <p className="text-sm text-center mt-4 text-gray-600">

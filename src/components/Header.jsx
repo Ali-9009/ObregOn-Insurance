@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Phone, Mail } from "lucide-react";
+import { Menu, X, Phone, Mail, EllipsisVertical } from "lucide-react";
 import { Link } from "react-router-dom";
 
 
 import Button from "./PrimaryBtn";
+import LanguageSelector from "./LanguageSelector";
 
 export default function Header() {
     const [open, setOpen] = useState(false);
@@ -12,8 +13,8 @@ export default function Header() {
     const navLinks = [
         { name: "Home", path: "/" },
         { name: "About Us", path: "/about" },
-        { name: "Insurance", path: "/insurance" },
-        { name: "Franchise", path: "/franchise" },
+        // { name: "Insurance", path: "/dashboard" },
+        // { name: "Franchise", path: "/franchise" },
         { name: "Locations", path: "/location" },
         { name: "Blog", path: "/blog" },
         { name: "Contact", path: "/contact" },
@@ -84,18 +85,19 @@ export default function Header() {
                     {/* Right Side */}
                     <div className="hidden lg:flex items-center gap-4">
                         <Button to="/login" text="Login"/>
-                        <div className="flex items-center gap-2 border px-3 py-1 rounded-full text-sm">
-                            🇺🇸 <span>EN</span>
-                        </div>
+                        <LanguageSelector />
                     </div>
+                    <div className=" lg:hidden flex flex-row gap-4 items-center justify-center">
+                        <LanguageSelector />
 
-                    {/* Mobile Menu Button */}
-                    <Button
-                        className="lg:hidden"
-                        onClick={() => setOpen(true)}
-                    >
-                        <Menu />
-                    </Button>
+                        {/* Mobile Menu Button */}
+                        <button
+                            className=" text-2xl"
+                            onClick={() => setOpen(true)}
+                        >
+                            ☰
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -127,9 +129,7 @@ export default function Header() {
 
                     <Button text="Login" />
 
-                    <div className="flex items-center gap-2 border px-3 py-2 rounded-full w-fit mt-2">
-                        🇺🇸 <span>EN</span>
-                    </div>
+                    
                 </div>
 
                 {/* Bottom Social Icons */}

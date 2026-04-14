@@ -22,6 +22,33 @@ const brands = [
     "Hartford",
 ];
 
+const leftItems = [
+    "Personal Auto",
+    "Homeowners & Renters",
+    "Flood",
+    "Umbrella Policies",
+    "Commercial Property & Condo Associations",
+    "Commercial Auto, Garage, & Gas Station Risks",
+    "Workers’ Comp",
+];
+
+const rightItems = [
+    "Yachts & Boats",
+    "Jet Skis & Recreational Coverage",
+    "Jewelry, Collectibles, and other Valuable Items",
+    "General Liability",
+    "Business Owners Policies (BOPs)",
+    "Restaurants & Liquor Liability",
+    "Broadcast Station",
+];
+
+const rightItemsNext = [
+    "We learn what matters most to you",
+    "We shop the market on your behalf",
+    "We explain your options in plain language",
+    "You choose what feels right, confidently",
+];
+
 function Home() {
     return (
         <>
@@ -86,20 +113,71 @@ function Home() {
                 </div>
             </section>
 
-            <section className="bg-blue-50 py-6">
+            <section className="bg-blue-50 py-6 px-4">
                 <div className="max-w-6xl mx-auto text-center">
-                    <p className="text-lg font-medium text-gray-700 mb-4">
+                    <p className="text-base sm:text-lg font-medium text-gray-700 mb-4">
                         Trusted by families across 50+ locations nationwide
                     </p>
-                    <div className="flex flex-wrap justify-center gap-18 text-(--secondary-color) text-md font-medium">
+
+                    <div className="flex flex-wrap justify-center items-center 
+                        gap-x-6 gap-y-3 
+                        text-sm sm:text-md 
+                        text-(--secondary-color) font-medium">
                         {brands.map((brand) => (
-                            <span key={brand}>{brand}</span>
+                            <span key={brand} className="whitespace-nowrap">
+                                {brand}
+                            </span>
                         ))}
                     </div>
                 </div>
             </section>
 
             <CoverageSection />
+
+            <section className="py-12 px-6 bg-white">
+                <div className="max-w-6xl mx-auto text-center">
+                    {/* Heading */}
+                    <h2 className="primary-heading mb-6">
+                        Personal and Commercial Insurance Solutions
+                    </h2>
+                    <p className="text-(--text-color) text-lg mb-8">
+                        We work with over 50 top-rated carriers to find the coverage that fits your life and your budget.
+                    </p>
+
+                    {/* Grid */}
+                    <div className="grid md:grid-cols-2 gap-10 mt-10 text-left">
+                        {/* Left */}
+                        <ul className="space-y-3">
+                            {leftItems.map((item, i) => (
+                                <li key={i} className="flex items-start gap-2 text-lg  font-medium  text-(--text-color)">
+                                    <CheckCircle className="text-(--secondary-color) w-5 h-5 mt-0.5" />
+                                    <span>{item}</span>
+                                </li>
+                            ))}
+                        </ul>
+
+                        {/* Right */}
+                        <ul className="space-y-3">
+                            {rightItems.map((item, i) => (
+                                <li key={i} className="flex items-start gap-2 text-lg  font-medium  text-(--text-color)">
+                                    <CheckCircle className="text-(--secondary-color) w-5 h-5 mt-0.5" />
+                                    <span>{item}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Button */}
+                    <div className="mt-8">
+                        <Button text="Insurance" />
+                    </div>
+
+                    {/* Footer text */}
+                    <p className="mt-4 text-slate-500">
+                        Learn More About These Coverages!
+                    </p>
+                </div>
+            </section>
 
             <section className="bg-blue-50 py-12">
                 <div className="max-w-4xl mx-auto text-center px-4">
@@ -134,6 +212,61 @@ function Home() {
                     </div>
                 </div>
             </section >
+
+            <section className="py-12 px-6 bg-white">
+                <div className="max-w-6xl mx-auto">
+
+                    <div className="grid md:grid-cols-2 gap-10 text-left">
+
+                        {/* LEFT */}
+                        <div>
+                            <h3 className="primary-heading">
+                                Local. Trusted. Experienced.
+                            </h3>
+
+                            <p className="mt-3 font-bold text-(--text-color) text-lg">
+                                Here for Our Community Since 2005
+                            </p>
+
+                            <p className="mt-3 text-(--text-color) text-lg">
+                                Obregon Insurance is a bilingual, independent insurance agency based in Miami. For nearly two decades, we've helped our community protect what matters most: their families, their businesses, and their futures.
+                            </p>
+
+                            <p className="mt-3 text-(--text-color) text-lg">
+                                We know insurance can feel confusing or impersonal. That's why we lead with clarity and respect. Whether you're reviewing your auto policy, securing homeowners coverage, or insuring your business, you can count on us to make it make sense.
+                            </p>
+                        </div>
+
+                        {/* RIGHT */}
+                        <div>
+                            <h3 className="primary-heading">
+                                Coverage Options That Fit You
+                            </h3>
+
+                            <p className="mt-3 text-(--text-color) text-lg">
+                                As an independent agency, we're not tied to one carrier. That means we can compare rates and coverage across multiple insurance companies to find the protection that fits your needs and your budget.
+                            </p>
+
+                            <p className="mt-3 font-bold text-(--text-color) text-lg">
+                                We make the process simple:
+                            </p>
+
+                            <ul className="space-y-3 mt-6">
+                                {rightItemsNext.map((item, i) => (
+                                    <li
+                                        key={i}
+                                        className="flex items-start gap-2 text-lg font-medium text-(--text-color)"
+                                    >
+                                        <CheckCircle className="text-(--secondary-color) w-5 h-5 mt-0.5" />
+                                        <span>{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
 
             <CounterX
                 stats={stats1}

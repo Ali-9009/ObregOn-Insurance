@@ -24,6 +24,11 @@ import LifeInsurance from './pages/InsurancePages/LifeInsurance'
 import RentersInsurance from './pages/InsurancePages/RentersInsurance'
 import FloodInsurance from './pages/InsurancePages/FloodInsurance'
 import ScrollToTop from "./ScrollToTop";
+import Dashboard from './dashboard/Dashboard'
+import Policy from './dashboard/Policy'
+import Billing from './dashboard/Billing'
+import Setting from './dashboard/Setting'
+
 
 
 
@@ -58,6 +63,10 @@ function App() {
             <Route path="/lifeInsurance" element={<LifeInsurance />} />
             <Route path="/rentersInsurance" element={<RentersInsurance />} />
             <Route path="/floodInsurance" element={<FloodInsurance />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/policy" element={<Policy />} />
+            <Route path="/billing" element={<Billing />} />
+            <Route path="/setting" element={<Setting />} />
           </Routes>
         </main>
 

@@ -28,7 +28,7 @@ export default function Layout({
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     <div>
                         <h2 className="primary-heading">{overview.title}</h2>
-                        <p className="mt-4 text-lg">{overview.text}</p>
+                        <p className="mt-4 text-lg font-medium text-(--text-color)">{overview.text}</p>
                     </div>
 
                     <img src={overviewImg} alt="" />
@@ -43,7 +43,7 @@ export default function Layout({
                     <div>
                         <h2 className="primary-heading">{coverTitle}</h2>
 
-                        <ul className="list-disc pl-5 mt-6 space-y-2">
+                        <ul className="list-disc text-md text-(--text-color) font-medium pl-5 mt-6 space-y-2">
                             {coverList.map((item, i) => (
                                 <li key={i}>{item}</li>
                             ))}
@@ -62,9 +62,9 @@ export default function Layout({
 
                 <div className="max-w-6xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-6">
                     {whyData.map((item, i) => (
-                        <div key={i} className="bg-white p-6 rounded-xl shadow-sm">
+                        <div key={i} className="bg-white text-(--text-color) p-6 rounded-xl shadow-sm">
                             <img src="/assets/c-i.png" className="w-10 mb-4" />
-                            <h3 className="font-semibold">{item.title}</h3>
+                            <h3 className=" font-semibold">{item.title}</h3>
                             <p className="text-sm mt-2">{item.desc}</p>
                         </div>
                     ))}
