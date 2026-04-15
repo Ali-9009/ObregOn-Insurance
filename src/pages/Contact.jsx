@@ -38,7 +38,7 @@ function Contact() {
                             <div className="flex items-start gap-3">
                                 <MapPin size={18} className="text-(--secondary-color) mt-1" />
                                 <span>
-                                    4074 Ebert Summit Suite 375 Lake Leonardchester
+                                    1740 SW 57 Ave, Miami, FL 33155
                                 </span>
                             </div>
 

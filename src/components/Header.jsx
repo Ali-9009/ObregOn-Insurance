@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, Phone, Mail } from "lucide-react";
+import { Menu, X, Phone, Mail, ChevronDown, Logs } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import Button from "./PrimaryBtn";
@@ -9,13 +9,27 @@ export default function Header() {
     const [open, setOpen] = useState(false);
     const [sticky, setSticky] = useState(false);
     const [langOpen, setLangOpen] = useState(false);
+    const [openDropdown, setOpenDropdown] = useState(null);
+    const [mobileDropdown, setMobileDropdown] = useState(null);
 
     const langRef = useRef(null);
 
     const navLinks = [
         { name: "Home", path: "/" },
         { name: "About Us", path: "/about" },
-        { name: "Insurance", path: "/insurance" },
+        {
+            name: "Insurance",
+            path: "/insurance",
+            dropdown: [
+                { name: "Home Insurance", path: "/homeInsurance" },
+                { name: "Commercial Insurance", path: "/commercialInsurance" },
+                { name: "Auto Insurance", path: "/autoInsurance" },
+                { name: "Rental Insurance", path: "/rentersInsurance" },
+                { name: "Flood Insurance", path: "/floodInsurance" },
+                { name: "Life Insurance", path: "/lifeInsurance" },
+
+            ],
+        },
         { name: "Locations", path: "/location" },
         { name: "Blog", path: "/blog" },
         { name: "Contact", path: "/contact" },
@@ -49,10 +63,29 @@ export default function Header() {
                     </div>
 
                     <div className="hidden md:flex items-center gap-4 text-lg">
-                        <i className="ri-facebook-fill cursor-pointer"></i>
-                        <i className="ri-twitter-fill cursor-pointer"></i>
-                        <i className="ri-instagram-line cursor-pointer"></i>
-                        <i className="ri-youtube-fill cursor-pointer"></i>
+                        <a
+                            href="https://www.facebook.com/ObregonInsurance#"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <i className="ri-facebook-fill cursor-pointer"></i>
+                        </a>
+
+                        <a
+                            href="https://www.linkedin.com/in/annie-obregon-29a46241/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <i className="ri-linkedin-fill cursor-pointer"></i>
+                        </a>
+
+                        <a
+                            href="https://share.google/7W9xI7DKHWPIXYX5K"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <i className="ri-google-fill cursor-pointer"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -60,8 +93,8 @@ export default function Header() {
             {/* NAVBAR */}
             <div
                 className={`bg-white border-b border-gray-300 transition-all duration-300 z-50 ${sticky
-                        ? "fixed top-0 left-0 w-full shadow-md"
-                        : "relative"
+                    ? "fixed top-0 left-0 w-full shadow-md"
+                    : "relative"
                     }`}
             >
                 <div
@@ -74,7 +107,7 @@ export default function Header() {
                         <img
                             src="/assets/logo.png"
                             alt="logo"
-                            className={`object-contain transition-all duration-300 origin-left ${sticky ? "h-10" : "h-14"
+                            className={`object-contain transition-all duration-300 origin-left ${sticky ? "h-10" : "h-11"
                                 }`}
                         />
                     </Link>
@@ -82,28 +115,52 @@ export default function Header() {
                     {/* Desktop Nav */}
                     <nav className="hidden lg:flex items-center gap-8 font-medium text-(--secondary-color)">
                         {navLinks.map((link) => (
-                            <Link key={link.name} to={link.path}>
-                                {link.name}
-                            </Link>
+                            <div key={link.name} className="relative group">
+
+                                {/* Main Link */}
+                                {link.dropdown ? (
+                                    <Link
+                                        to={link.path}
+                                        className="flex items-center gap-1"
+                                    >
+                                        {link.name}
+                                        <ChevronDown size={16} />
+                                    </Link>
+                                ) : (
+                                    <Link to={link.path}>{link.name}</Link>
+                                )}
+
+                                {/* Dropdown (hover only) */}
+                                {link.dropdown && (
+                                    <div className="absolute left-0 top-full mt-1 hidden group-hover:block bg-white shadow-lg rounded-md py-2 w-48 z-50">
+                                        {link.dropdown.map((item) => (
+                                            <Link
+                                                key={item.name}
+                                                to={item.path}
+                                                className="block px-4 text-sm py-2 hover:bg-gray-100"
+                                            >
+                                                {item.name}
+                                            </Link>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
                         ))}
                     </nav>
 
                     {/* Right */}
                     <div className="hidden lg:flex items-center gap-4">
-
                         <Button to="/login" text="Login" />
-
                         <LanguageSelector />
-
                     </div>
 
                     {/* Mobile */}
                     <div className="lg:hidden flex items-center gap-4">
-                  
-                            <LanguageSelector />
+
+                        <LanguageSelector />
 
                         <button onClick={() => setOpen(true)}>
-                            ☰
+                            <Logs size={26} />
                         </button>
                     </div>
 
@@ -115,7 +172,7 @@ export default function Header() {
                 className={`fixed top-0 right-0 h-full w-72 bg-white shadow-lg transition-transform duration-300 z-50 ${open ? "translate-x-0" : "translate-x-full"
                     }`}
             >
-                <div className="flex justify-between items-center p-4 border-b">
+                <div className="flex justify-between items-center p-4 border-gray-300 border-b">
                     <img src="/assets/logo.png" className="w-20" alt="" />
                     <button onClick={() => setOpen(false)}>
                         <X />
@@ -124,16 +181,40 @@ export default function Header() {
 
                 <div className="flex flex-col gap-4 p-4">
                     {navLinks.map((link) => (
-                        <Link
-                            key={link.name}
-                            to={link.path}
-                            onClick={() => setOpen(false)}
-                        >
-                            {link.name}
-                        </Link>
+                        <div key={link.name} className="flex flex-col">
+
+                            {/* MAIN LINK */}
+                            <div className="flex items-center justify-between">
+                                <Link
+                                    to={link.path}
+                                    onClick={() => setOpen(false)}
+                                    className="py-2"
+                                >
+                                    {link.name}
+                                </Link>
+                            </div>
+
+                            {/* ALWAYS SHOW DROPDOWN (no click) */}
+                            {link.dropdown && (
+                                <div className="pl-4 flex flex-col border-l border-gray-200 ml-2">
+                                    {link.dropdown.map((item) => (
+                                        <Link
+                                            key={item.name}
+                                            to={item.path}
+                                            onClick={() => setOpen(false)}
+                                            className="py-2 text-sm text-gray-600"
+                                        >
+                                            {item.name}
+                                        </Link>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
                     ))}
 
-                    <Button text="Login" />
+                    <div onClick={() => setOpen(false)}>
+                        <Button to="/login" text="Login" className="text-center" />
+                    </div>
                 </div>
             </div>
 

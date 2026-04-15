@@ -82,10 +82,35 @@ export default function Footer() {
                             </a>
                         </div>
 
-                        <div className="flex items-center gap-2 text-sm text-gray-200">
+                        <div className="flex items-center gap-2 text-sm text-gray-200 mb-2">
                             <Mail size={14} />
                             <a href="mailto:Support@hellopeasy.com" className="hover:text-white">
                                 Support@hellopeasy.com
+                            </a>
+                        </div>
+                        <div className="hidden md:flex items-center gap-2 text-lg">
+                            <a
+                                href="https://www.facebook.com/ObregonInsurance#"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i className="ri-facebook-fill cursor-pointer"></i>
+                            </a>
+
+                            <a
+                                href="https://www.linkedin.com/in/annie-obregon-29a46241/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i className="ri-linkedin-fill cursor-pointer"></i>
+                            </a>
+
+                            <a
+                                href="https://share.google/7W9xI7DKHWPIXYX5K"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i className="ri-google-fill cursor-pointer"></i>
                             </a>
                         </div>
                     </div>

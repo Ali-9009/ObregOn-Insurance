@@ -58,7 +58,7 @@ export default function CoverageSection() {
                 <div className="md:mt-12 mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     {coverageData.map((item) => (
                         <Link to={item.link} key={item.title}>
-                            <div className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer">
+                            <div className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer md:h-80">
                                 <img src={item.img} alt={item.title} className="w-full h-40 object-cover" />
                                 <div className="p-4">
                                     <h3 className="text-[20px] font-semibold text-(--secondary-color)">

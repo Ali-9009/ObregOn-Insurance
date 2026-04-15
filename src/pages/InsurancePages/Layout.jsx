@@ -1,6 +1,7 @@
 // components/InsurancePage.jsx
 import { CheckCircle } from "lucide-react";
 import FAQ from "../../components/Faqs";
+import ImageLoader from "../../components/ImageLoader";
 
 export default function Layout({
     title,
@@ -32,14 +33,22 @@ export default function Layout({
                         <p className="mt-4 text-lg font-medium text-(--text-color)">{overview.text}</p>
                     </div>
 
-                    <img src={overviewImg} alt="" />
+                    <ImageLoader
+                        src={overviewImg}
+                        alt="overview image"
+                        className="w-full h-full object-cover rounded-xl"
+                    />
                 </div>
             </section>
 
             {/* Covers */}
             <section className="max-w-6xl mx-auto px-6 py-12">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
-                    <img src={coverImg} alt="" />
+                    <ImageLoader
+                        src={coverImg}
+                        alt="cover image"
+                        className="w-full h-full object-cover rounded-xl"
+                    />
 
                     <div>
                         <h2 className="primary-heading">{coverTitle}</h2>

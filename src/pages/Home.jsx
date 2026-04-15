@@ -154,7 +154,7 @@ function Home() {
                     </p>
 
                     {/* Grid */}
-                    <div className="grid md:grid-cols-2 gap-10 mt-10 text-left">
+                    <div className="grid md:grid-cols-2 lg:gap-10 mt-10 text-left">
                         {/* Left */}
                         <ul className="space-y-3">
                             {leftItems.map((item, i) => (
@@ -235,7 +235,7 @@ function Home() {
                 </div>
             </section >
 
-            <section className="py-12 px-6 bg-white">
+            <section className="md:py-12 py-8 px-6 bg-white">
                 <div className="max-w-6xl mx-auto">
 
                     <div className="grid md:grid-cols-2 gap-10 text-left">
