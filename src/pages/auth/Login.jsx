@@ -1,11 +1,19 @@
 import { useState } from "react";
-import { Eye, EyeOff } from "lucide-react";
 import { Link } from "react-router-dom";
 
+import FloatingInput from "../../components/FloatingInput";
 import Button from "../../components/PrimaryBtn"
 
 export default function Login() {
-    const [showPassword, setShowPassword] = useState(false);
+
+    const [form, setForm] = useState({
+        email: "",
+        password: "",
+    });
+
+    const handleChange = (e) => {
+        setForm({ ...form, [e.target.name]: e.target.value });
+    };
 
     return (
         <div className="flex items-center justify-center px-4 py-16">
@@ -17,31 +25,22 @@ export default function Login() {
                 </p>
 
                 {/* Email */}
-                <div className="mb-5">
-                    <label className="block text-xs text-gray-500 mb-1">Email</label>
-                    <input
-                        type="email"
-                        defaultValue="john.doe@gmail.com"
-                        className="w-full px-4 py-3 bg-white border border-gray-300 rounded-md text-sm shadow-sm focus:outline-none"
-                    />
-                </div>
+                <FloatingInput
+                    label="Email"
+                    type="email"
+                    name="email"
+                    value={form.email}
+                    onChange={handleChange}
+                />
 
                 {/* Password */}
-                <div className="mb-4 relative">
-                    <label className="block text-xs text-gray-500 mb-1">Password</label>
-                    <input
-                        type={showPassword ? "text" : "password"}
-                        defaultValue="password"
-                        className="w-full px-4 py-3 bg-white border border-gray-300 rounded-md text-sm shadow-sm focus:outline-none"
-                    />
-                    <button
-                        type="button"
-                        onClick={() => setShowPassword(!showPassword)}
-                        className="absolute right-3 top-9 text-gray-400"
-                    >
-                        {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
-                    </button>
-                </div>
+                <FloatingInput
+                    label="Password"
+                    type="password"
+                    name="password"
+                    value={form.password}
+                    onChange={handleChange}
+                />
 
                 {/* Remember + Forgot */}
                 <div className="flex items-center justify-between mb-6">
@@ -59,7 +58,7 @@ export default function Login() {
                 </div>
 
                 {/* Button */}
-                <Button className="w-full text-center" text="Login" to="/dashboard"/> 
+                <Button className="w-full text-center" text="Login" to="/dashboard" />
 
                 {/* Signup */}
                 <p className="text-sm text-center mt-4 text-gray-600">
@@ -68,7 +67,7 @@ export default function Login() {
                         Sign up
                     </Link>
                 </p>
-                
+
                 {/* Divider */}
                 <div className="flex items-center gap-3 my-6">
                     <div className="flex-1 h-px bg-gray-300"></div>
@@ -78,14 +77,16 @@ export default function Login() {
 
                 {/* Social */}
                 <div className="grid grid-cols-3 gap-4">
-                    <button className="border border-blue-500 rounded-md py-2 flex items-center justify-center text-blue-600">
-                        f
+                    <button className="border border-blue-500 rounded-md py-2 flex items-center justify-center text-(--primary-color)">
+                        <i className="ri-facebook-fill text-xl"></i>
                     </button>
-                    <button className="border border-blue-500 rounded-md py-2 flex items-center justify-center text-blue-600">
-                        G
+
+                    <button className="border border-blue-500 rounded-md py-2 flex items-center justify-center text-(--primary-color)">
+                        <i className="ri-google-fill text-xl"></i>
                     </button>
-                    <button className="border border-blue-500 rounded-md py-2 flex items-center justify-center text-blue-600">
-                        
+
+                    <button className="border border-blue-500 rounded-md py-2 flex items-center justify-center text-(--primary-color)">
+                        <i className="ri-apple-fill text-xl"></i>
                     </button>
                 </div>
             </div>

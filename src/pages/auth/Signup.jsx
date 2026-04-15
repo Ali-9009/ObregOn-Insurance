@@ -1,12 +1,23 @@
 import { useState } from "react";
-import { Eye, EyeOff } from "lucide-react";
 import { Link } from "react-router-dom";
 
+import FloatingInput from "../../components/FloatingInput";
 import Button from "../../components/PrimaryBtn";
 
+    
 export default function Signup() {
-    const [showPassword, setShowPassword] = useState(false);
-    const [showConfirm, setShowConfirm] = useState(false);
+
+    const [form, setForm] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        password: "",
+    });
+
+    const handleChange = (e) => {
+        setForm({ ...form, [e.target.name]: e.target.value });
+    };
 
     return (
         <div className="flex items-center justify-center px-4 py-16">
@@ -19,77 +30,48 @@ export default function Signup() {
 
                 {/* Row 1 */}
                 <div className="grid grid-cols-2 gap-4 mb-4">
-                    <div>
-                        <label className="text-xs text-gray-500">First Name</label>
-                        <input
-                            type="text"
-                            placeholder="john"
-                            className="w-full px-4 py-3 bg-white border border-gray-300 rounded-md text-sm shadow-sm focus:outline-none"
-                        />
+                    <FloatingInput
+                        label="First Name"
+                        type="text"
+                        name="firstName"
+                        value={form.firstName}
+                        onChange={handleChange}
+                    />
+
+                    <FloatingInput
+                        label="Last Name"
+                        type="text"
+                        name="lastName"
+                        value={form.lastName}
+                        onChange={handleChange}
+                    />
                     </div>
-                    <div>
-                        <label className="text-xs text-gray-500">Last Name</label>
-                        <input
-                            type="text"
-                            placeholder="doe"
-                            className="w-full px-4 py-3 bg-white border border-gray-300 rounded-md text-sm shadow-sm focus:outline-none"
-                        />
-                    </div>
-                </div>
 
                 {/* Row 2 */}
                 <div className="grid grid-cols-2 gap-4 mb-4">
-                    <div>
-                        <label className="text-xs text-gray-500">Email</label>
-                        <input
-                            type="email"
-                            placeholder="john.doe@gmail.com"
-                            className="w-full px-4 py-3 bg-white border border-gray-300 rounded-md text-sm shadow-sm focus:outline-none"
-                        />
-                    </div>
-                    <div>
-                        <label className="text-xs text-gray-500">Phone Number</label>
-                        <input
-                            type="text"
-                            placeholder="+123456789"
-                            className="w-full px-4 py-3 bg-white border border-gray-300 rounded-md text-sm shadow-sm focus:outline-none"
-                        />
-                    </div>
+                    <FloatingInput
+                        label="Email"
+                        type="email"
+                        name="email"
+                        value={form.email}
+                        onChange={handleChange}
+                    />
+                    <FloatingInput
+                        label="Phone"
+                        type="tel"
+                        name="phone"
+                        onChange={handleChange}
+                    />
                 </div>
 
                 {/* Password */}
-                <div className="mb-4 relative">
-                    <label className="text-xs text-gray-500">Password</label>
-                    <input
-                        type={showPassword ? "text" : "password"}
-                        placeholder="***************"
-                        className="w-full px-4 py-3 bg-white border border-gray-300 rounded-md text-sm shadow-sm focus:outline-none"
-                    />
-                    <button
-                        type="button"
-                        onClick={() => setShowPassword(!showPassword)}
-                        className="absolute right-3 top-10 text-gray-400"
-                    >
-                        {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
-                    </button>
-                </div>
-
-                {/* Confirm Password */}
-                <div className="mb-4 relative">
-                    <label className="text-xs text-gray-500">Confirm Password</label>
-                    <input
-                        type={showConfirm ? "text" : "password"}
-                        placeholder="***************"
-                        className="w-full px-4 py-3 bg-white border border-gray-300 rounded-md text-sm shadow-sm focus:outline-none"
-                    />
-                    <button
-                        type="button"
-                        onClick={() => setShowConfirm(!showConfirm)}
-                        className="absolute right-3 top-10 text-gray-400"
-                    >
-                        {showConfirm ? <EyeOff size={18} /> : <Eye size={18} />}
-                    </button>
-                </div>
+                <FloatingInput
+                    label="Password"
+                    type="password"
+                    name="password"
+                    value={form.password}
+                    onChange={handleChange}
+                />
 
                 {/* Terms */}
                 <div className="flex items-center gap-2 text-sm text-gray-600 mb-6">
@@ -101,7 +83,7 @@ export default function Signup() {
                 </div>
 
                 {/* Button */}
-                <Button className="w-full" text="Create account"/>
+                <Button className="w-full" text="Create account" />
 
                 {/* Login */}
                 <p className="text-sm text-center mt-4 text-gray-600">
@@ -120,14 +102,16 @@ export default function Signup() {
 
                 {/* Social */}
                 <div className="grid grid-cols-3 gap-4">
-                    <button className="border border-blue-500 rounded-md py-2 flex items-center justify-center text-blue-600">
-                        f
+                    <button className="border border-blue-500 rounded-md py-2 flex items-center justify-center text-(--primary-color)">
+                        <i className="ri-facebook-fill text-xl"></i>
                     </button>
-                    <button className="border border-blue-500 rounded-md py-2 flex items-center justify-center text-blue-600">
-                        G
+
+                    <button className="border border-blue-500 rounded-md py-2 flex items-center justify-center text-(--primary-color)">
+                        <i className="ri-google-fill text-xl"></i>
                     </button>
-                    <button className="border border-blue-500 rounded-md py-2 flex items-center justify-center text-blue-600">
-                        
+
+                    <button className="border border-blue-500 rounded-md py-2 flex items-center justify-center text-(--primary-color)">
+                        <i className="ri-apple-fill text-xl"></i>
                     </button>
                 </div>
             </div>

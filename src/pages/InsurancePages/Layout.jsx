@@ -1,4 +1,5 @@
 // components/InsurancePage.jsx
+import { CheckCircle } from "lucide-react";
 import FAQ from "../../components/Faqs";
 
 export default function Layout({
@@ -15,7 +16,7 @@ export default function Layout({
         <>
             {/* Hero */}
             <section className="bg-(--secondary-color) text-white">
-                <div className="max-w-4xl mx-auto px-6 py-20 text-center">
+                <div className="max-w-4xl mx-auto px-6 py-12 text-center">
                     <h2 className="text-[30px] md:text-[45px] font-bold mt-3">
                         {title}
                     </h2>
@@ -43,9 +44,12 @@ export default function Layout({
                     <div>
                         <h2 className="primary-heading">{coverTitle}</h2>
 
-                        <ul className="list-disc text-md text-(--text-color) font-medium pl-5 mt-6 space-y-2">
+                        <ul className="text-lg text-(--text-color) font-medium mt-6 space-y-3">
                             {coverList.map((item, i) => (
-                                <li key={i}>{item}</li>
+                                <li className="flex items-start gap-3 text-lg font-medium text-(--text-color)">
+                                    <CheckCircle className="text-(--secondary-color) w-5 h-5 mt-1 shrink-0" />
+                                    <span>{item}</span>
+                                </li>
                             ))}
                         </ul>
                     </div>

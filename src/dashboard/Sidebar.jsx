@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import {
   LayoutDashboard,
   FileText,
@@ -97,10 +97,13 @@ export default function Sidebar() {
             </NavLink>
           ))}
 
-          <button className="flex items-center gap-2 text-(--primary-color) pt-4">
+          <Link
+            to="/login"
+            className="flex items-center gap-2 text-(--primary-color) pt-4"
+          >
             <LogOut size={18} />
             Logout
-          </button>
+          </Link>
         </div>
       </div>
     </>

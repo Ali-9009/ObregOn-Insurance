@@ -49,6 +49,15 @@ const rightItemsNext = [
     "You choose what feels right, confidently",
 ];
 
+const topImages = [
+    "/assets/h-insurance.png",
+    "/assets/c-insurance.png",
+    "/assets/a-insurance.png",
+    "/assets/r-insurance.png",
+    "/assets/f-insurance.png",
+    "/assets/l-insurance.png",
+];
+
 function Home() {
     return (
         <>
@@ -72,37 +81,37 @@ function Home() {
                             </p>
 
                             <div className="flex flex-wrap gap-4 mt-6">
-                                <Button className="" text="Get a Quote" />
+                                <Button className="" to="/contact" text="Get a Quote" />
                             </div>
                         </div>
 
-                        <div className="relative p-6 sm:p-8 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-xl">
-                            <h3 className="text-2xl sm:text-3xl md:text-4xl text-center mb-6">
+                        <div className="lg:max-w-sm mx-auto w-full  relative p-6 sm:p-8 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-xl">
+                            <h3 className="text-2xl md:text-3xl text-center mb-6">
                                 Schedule your Free Consultation today
                             </h3>
                             <form className="flex flex-col gap-4">
                                 <input
                                     type="text"
                                     placeholder="First Name"
-                                    className="w-full px-4 h-12 rounded-full border border-gray-300 text-gray-900 
+                                    className="w-full px-4 h-12 rounded-full border border-gray-300 text-white 
                placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-[#007AAE] transition-all duration-200"
                                 />
                                 <input
                                     type="text"
                                     placeholder="Last Name"
-                                    className="w-full px-4 h-12 rounded-full border border-gray-300 text-gray-900 
+                                    className="w-full px-4 h-12 rounded-full border border-gray-300 text-white 
                placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-[#007AAE] transition-all duration-200"
                                 />
                                 <input
                                     type="text"
                                     placeholder="Email"
-                                    className="w-full px-4 h-12 rounded-full border border-gray-300 text-gray-900 
+                                    className="w-full px-4 h-12 rounded-full border border-gray-300 text-white 
                placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-[#007AAE] transition-all duration-200"
                                 />
                                 <input
                                     type="text"
                                     placeholder="Phone"
-                                    className="w-full px-4 h-12 rounded-full border border-gray-300 text-gray-900 
+                                    className="w-full px-4 h-12 rounded-full border border-gray-300 text-white 
                placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-[#007AAE] transition-all duration-200"
                                 />
 
@@ -134,7 +143,7 @@ function Home() {
 
             <CoverageSection />
 
-            <section className="py-12 px-6 bg-white">
+            <section className="py-12 px-6 bg-white overflow-hidden">
                 <div className="max-w-6xl mx-auto text-center">
                     {/* Heading */}
                     <h2 className="primary-heading mb-6">
@@ -149,8 +158,8 @@ function Home() {
                         {/* Left */}
                         <ul className="space-y-3">
                             {leftItems.map((item, i) => (
-                                <li key={i} className="flex items-start gap-2 text-lg  font-medium  text-(--text-color)">
-                                    <CheckCircle className="text-(--secondary-color) w-5 h-5 mt-0.5" />
+                                <li className="flex items-start gap-3 text-lg font-medium text-(--text-color)">
+                                    <CheckCircle className="text-(--secondary-color) w-5 h-5 mt-1 shrink-0" />
                                     <span>{item}</span>
                                 </li>
                             ))}
@@ -159,8 +168,8 @@ function Home() {
                         {/* Right */}
                         <ul className="space-y-3">
                             {rightItems.map((item, i) => (
-                                <li key={i} className="flex items-start gap-2 text-lg  font-medium  text-(--text-color)">
-                                    <CheckCircle className="text-(--secondary-color) w-5 h-5 mt-0.5" />
+                                <li className="flex items-start gap-3 text-lg font-medium text-(--text-color)">
+                                    <CheckCircle className="text-(--secondary-color) w-5 h-5 mt-1 shrink-0" />
                                     <span>{item}</span>
                                 </li>
                             ))}
@@ -168,14 +177,27 @@ function Home() {
                     </div>
 
                     {/* Button */}
-                    <div className="mt-8">
-                        <Button text="Insurance" />
+                    <div className="mt-8 w-32 mx-auto">
+                        <Button to="/insurance" text="Insurance" />
                     </div>
 
                     {/* Footer text */}
                     <p className="mt-4 text-slate-500">
                         Learn More About These Coverages!
                     </p>
+                </div>
+                
+                <div className="w-full overflow-hidden my-10">
+                    <div className="flex animate-marquee">
+                        {[...topImages, ...topImages].map((img, index) => (
+                            <img
+                                key={index}
+                                src={img}
+                                alt=""
+                                className="h-36 md:h-44 w-auto mx-2 object-cover"
+                            />
+                        ))}
+                    </div>
                 </div>
             </section>
 
@@ -253,11 +275,8 @@ function Home() {
 
                             <ul className="space-y-3 mt-6">
                                 {rightItemsNext.map((item, i) => (
-                                    <li
-                                        key={i}
-                                        className="flex items-start gap-2 text-lg font-medium text-(--text-color)"
-                                    >
-                                        <CheckCircle className="text-(--secondary-color) w-5 h-5 mt-0.5" />
+                                    <li className="flex items-start gap-3 text-lg font-medium text-(--text-color)">
+                                        <CheckCircle className="text-(--secondary-color) w-5 h-5 mt-1 shrink-0" />
                                         <span>{item}</span>
                                     </li>
                                 ))}

@@ -1,11 +1,18 @@
 import { useState } from "react";
-import { Eye, EyeOff } from "lucide-react";
-import { Link } from "react-router-dom";
 
+import FloatingInput from "../../components/FloatingInput";
 import Button from "../../components/PrimaryBtn"
 
 export default function SetNew() {
-    const [showPassword, setShowPassword] = useState(false);
+
+    const [form, setForm] = useState({
+        password: "",
+        confirmPassword: "",
+    });
+
+    const handleChange = (e) => {
+        setForm({ ...form, [e.target.name]: e.target.value });
+    };
 
     return (
         <div className="flex items-center justify-center px-4 py-16">
@@ -16,39 +23,21 @@ export default function SetNew() {
                     Your previous password has been reseted. Please set a new password for your account.
                 </p>
 
-                {/* Password */}
-                <div className="mb-4 relative">
-                    <label className="block text-xs text-gray-500 mb-1">Create Password</label>
-                    <input
-                        type={showPassword ? "text" : "password"}
-                        defaultValue="password"
-                        className="w-full px-4 py-3 bg-white border border-gray-300 rounded-md text-sm shadow-sm focus:outline-none"
-                    />
-                    <button
-                        type="button"
-                        onClick={() => setShowPassword(!showPassword)}
-                        className="absolute right-3 top-9 text-gray-400"
-                    >
-                        {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
-                    </button>
-                </div>
+                <FloatingInput
+                    label="Password"
+                    type="password"
+                    name="password"
+                    value={form.password}
+                    onChange={handleChange}
+                />
 
-                {/* Password */}
-                <div className="mb-4 relative">
-                    <label className="block text-xs text-gray-500 mb-1">Confirm Password</label>
-                    <input
-                        type={showPassword ? "text" : "password"}
-                        defaultValue="password"
-                        className="w-full px-4 py-3 bg-white border border-gray-300 rounded-md text-sm shadow-sm focus:outline-none"
-                    />
-                    <button
-                        type="button"
-                        onClick={() => setShowPassword(!showPassword)}
-                        className="absolute right-3 top-9 text-gray-400"
-                    >
-                        {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
-                    </button>
-                </div>
+                <FloatingInput
+                    label="Confirm Password"
+                    type="password"
+                    name="confirmPassword"
+                    value={form.confirmPassword}
+                    onChange={handleChange}
+                />
 
                 <Button text="Set password" className="w-full text-center" to="/" />
             </div>

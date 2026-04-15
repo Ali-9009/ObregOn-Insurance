@@ -6,7 +6,7 @@ export default function Footer() {
     const quickLinks = [
         { name: "Home", path: "/" },
         { name: "About Us", path: "/about" },
-        // { name: "Insurance", path: "/insurance" },
+        { name: "Insurance", path: "/insurance" },
         // { name: "Franchise", path: "/franchise" },
         { name: "Locations", path: "/location" },
         { name: "Blog", path: "/blog" },
@@ -34,10 +34,13 @@ export default function Footer() {
                 <div className="grid md:grid-cols-4 gap-10">
 
                     {/* LOGO */}
-                    <div>
+                    <div className="text-sm text-gray-200">
                         <Link to="/">
-                            <img src="/assets/logo-1.png" className="w-30" alt="logo" />
+                            <img src="/assets/logo-1.png" className="w-42" alt="logo" />
                         </Link>
+                        <p className="mt-4">
+                            Protect today, secure tomorrow. Our insurance services help you stay prepared for life’s uncertainties.
+                        </p>
                     </div>
 
                     {/* QUICK LINKS */}
@@ -95,7 +98,7 @@ export default function Footer() {
                 <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-300 gap-4">
                     <p>© 2026 Obregon Insurance. All rights reserved.</p>
 
-                    <div className="flex gap-6">
+                    <div className="flex md:gap-6 gap-3">
                         {footerLinks.map((link, i) => (
                             <Link key={i} to={link.path} className="hover:text-white">
                                 {link.name}

@@ -1,6 +1,18 @@
+import { useState } from "react";
+
 import Button from "../../components/PrimaryBtn"
+import FloatingInput from "../../components/FloatingInput";
+
 
 export default function ForgotPassword() {
+
+    const [form, setForm] = useState({
+        email: "",
+    });
+
+    const handleChange = (e) => {
+        setForm({ ...form, [e.target.name]: e.target.value });
+    };
 
     return (
         <div className="flex items-center justify-center px-4 py-16">
@@ -12,17 +24,16 @@ export default function ForgotPassword() {
                 </p>
 
                 {/* Email */}
-                <div className="mb-5">
-                    <label className="block text-xs text-gray-500 mb-1">Email</label>
-                    <input
-                        type="email"
-                        defaultValue="john.doe@gmail.com"
-                        className="w-full px-4 py-3 bg-white border border-gray-300 rounded-md text-sm shadow-sm focus:outline-none"
-                    />
-                </div>
+                <FloatingInput
+                    label="Email"
+                    type="email"
+                    name="email"
+                    value={form.email}
+                    onChange={handleChange}
+                />
 
                 {/* Button */}
-                <Button to="/verifyCode" className="w-full text-center" text="Submit"/>
+                <Button to="/verifyCode" className="w-full text-center" text="Submit" />
             </div>
         </div>
     );

@@ -28,6 +28,7 @@ import Dashboard from './dashboard/Dashboard'
 import Policy from './dashboard/Policy'
 import Billing from './dashboard/Billing'
 import Setting from './dashboard/Setting'
+import Insurance from './pages/Insurance'
 
 
 
@@ -67,6 +68,7 @@ function App() {
             <Route path="/policy" element={<Policy />} />
             <Route path="/billing" element={<Billing />} />
             <Route path="/setting" element={<Setting />} />
+            <Route path="/insurance" element={<Insurance />} />
           </Routes>
         </main>
 

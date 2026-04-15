@@ -39,7 +39,7 @@ export default function CounterX({
 }) {
     return (
         <section className={`w-full px-6 py-8 ${className}`}>
-            <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-6 text-center">
+            <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-6 text-center">
                 {stats.map((item, index) => (
                     <div key={index} className="p-6">
                         <h3 className={`text-4xl font-bold ${numberClass}`}>

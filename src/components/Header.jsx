@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react";
-import { Menu, X, Phone, Mail, EllipsisVertical } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Menu, X, Phone, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
-
 
 import Button from "./PrimaryBtn";
 import LanguageSelector from "./LanguageSelector";
@@ -9,17 +8,20 @@ import LanguageSelector from "./LanguageSelector";
 export default function Header() {
     const [open, setOpen] = useState(false);
     const [sticky, setSticky] = useState(false);
+    const [langOpen, setLangOpen] = useState(false);
+
+    const langRef = useRef(null);
 
     const navLinks = [
         { name: "Home", path: "/" },
         { name: "About Us", path: "/about" },
-        // { name: "Insurance", path: "/dashboard" },
-        // { name: "Franchise", path: "/franchise" },
+        { name: "Insurance", path: "/insurance" },
         { name: "Locations", path: "/location" },
         { name: "Blog", path: "/blog" },
         { name: "Contact", path: "/contact" },
     ];
 
+    // Sticky scroll
     useEffect(() => {
         const handleScroll = () => {
             setSticky(window.scrollY > 50);
@@ -31,15 +33,16 @@ export default function Header() {
 
     return (
         <header className="w-full">
+
             {/* Top Bar */}
             <div className="bg-(--primary-color) text-white text-sm">
                 <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-2">
                     <div className="flex items-center gap-6">
-                        <a href="tel:3052656226" className="flex items-center gap-2 hover:underline">
+                        <a href="tel:3052656226" className="flex items-center gap-2">
                             <Phone size={16} />
                             <span>305.265.6226</span>
                         </a>
-                        <a href="mailto:obregoninsurance@gmail.com" className="flex items-center gap-2 hover:underline">
+                        <a href="mailto:obregoninsurance@gmail.com" className="flex items-center gap-2">
                             <Mail size={16} />
                             <span>obregoninsurance@gmail.com</span>
                         </a>
@@ -54,62 +57,66 @@ export default function Header() {
                 </div>
             </div>
 
-            {/* Sticky Navbar */}
+            {/* NAVBAR */}
             <div
-                className={`bg-white transition-all border-b border-gray-300 duration-300 ${sticky
-                        ? "fixed top-0 left-0 w-full shadow-md z-50 animate-slideDown"
+                className={`bg-white border-b border-gray-300 transition-all duration-300 z-50 ${sticky
+                        ? "fixed top-0 left-0 w-full shadow-md"
                         : "relative"
                     }`}
             >
-                <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
+                <div
+                    className={`max-w-7xl mx-auto flex items-center justify-between px-4 transition-all duration-300 ${sticky ? "py-2" : "py-4"
+                        }`}
+                >
+
                     {/* Logo */}
-                    <div className="flex items-center gap-2">
-                        <Link to="/">
-                            <img src="/assets/logo.png" className="w-26" alt="" />
-                        </Link>
-                    </div>
+                    <Link to="/" className="flex items-center">
+                        <img
+                            src="/assets/logo.png"
+                            alt="logo"
+                            className={`object-contain transition-all duration-300 origin-left ${sticky ? "h-10" : "h-14"
+                                }`}
+                        />
+                    </Link>
 
                     {/* Desktop Nav */}
                     <nav className="hidden lg:flex items-center gap-8 font-medium text-(--secondary-color)">
                         {navLinks.map((link) => (
-                            <Link
-                                key={link.name}
-                                to={link.path}
-                                className="hover:text-[#0b5e7a]"
-                            >
+                            <Link key={link.name} to={link.path}>
                                 {link.name}
                             </Link>
                         ))}
                     </nav>
 
-                    {/* Right Side */}
+                    {/* Right */}
                     <div className="hidden lg:flex items-center gap-4">
-                        <Button to="/login" text="Login"/>
-                        <LanguageSelector />
-                    </div>
-                    <div className=" lg:hidden flex flex-row gap-4 items-center justify-center">
+
+                        <Button to="/login" text="Login" />
+
                         <LanguageSelector />
 
-                        {/* Mobile Menu Button */}
-                        <button
-                            className=" text-2xl"
-                            onClick={() => setOpen(true)}
-                        >
+                    </div>
+
+                    {/* Mobile */}
+                    <div className="lg:hidden flex items-center gap-4">
+                  
+                            <LanguageSelector />
+
+                        <button onClick={() => setOpen(true)}>
                             ☰
                         </button>
                     </div>
+
                 </div>
             </div>
 
-            {/* Sidebar (Right Side) */}
+            {/* Sidebar */}
             <div
-                className={`fixed top-0 right-0 h-full w-72 bg-white shadow-lg transform transition-transform duration-300 z-50 ${open ? "translate-x-0" : "translate-x-full"
+                className={`fixed top-0 right-0 h-full w-72 bg-white shadow-lg transition-transform duration-300 z-50 ${open ? "translate-x-0" : "translate-x-full"
                     }`}
             >
-                <div className="flex justify-between items-center p-4 border-b border-gray-300">
-                    <div className="flex items-center gap-2">
-                        <img src="/assets/logo.png" className="w-20" alt="" />
-                    </div>
+                <div className="flex justify-between items-center p-4 border-b">
+                    <img src="/assets/logo.png" className="w-20" alt="" />
                     <button onClick={() => setOpen(false)}>
                         <X />
                     </button>
@@ -120,24 +127,13 @@ export default function Header() {
                         <Link
                             key={link.name}
                             to={link.path}
-                            onClick={() => setOpen(false)} // close menu
-                            className="text-gray-700 hover:text-[#0b5e7a]"
+                            onClick={() => setOpen(false)}
                         >
                             {link.name}
                         </Link>
                     ))}
 
                     <Button text="Login" />
-
-                    
-                </div>
-
-                {/* Bottom Social Icons */}
-                <div className="absolute bottom-0 w-full p-4 border-t border-gray-300 flex justify-start gap-5 text-xl">
-                    <i className="ri-facebook-fill cursor-pointer"></i>
-                    <i className="ri-twitter-fill cursor-pointer"></i>
-                    <i className="ri-instagram-line cursor-pointer"></i>
-                    <i className="ri-youtube-fill cursor-pointer"></i>
                 </div>
             </div>
 
@@ -148,23 +144,6 @@ export default function Header() {
                     onClick={() => setOpen(false)}
                 />
             )}
-
-            {/* Custom Animation */}
-            <style>{`
-        @keyframes slideDown {
-          from {
-            transform: translateY(-100%);
-            opacity: 0;
-          }
-          to {
-            transform: translateY(0);
-            opacity: 1;
-          }
-        }
-        .animate-slideDown {
-          animation: slideDown 0.3s ease forwards;
-        }
-      `}</style>
         </header>
     );
 }
