@@ -1,5 +1,7 @@
 import Sidebar from "./Sidebar";
 import Button from "../components/PrimaryBtn";
+import { SquarePen } from "lucide-react";
+import BankCard from "../components/BankCard";
 
 export default function Billing() {
 
@@ -19,28 +21,7 @@ export default function Billing() {
           <div className="grid md:grid-cols-2 gap-4">
 
             {/* Card */}
-            <div className="bg-[#0f172a] text-white rounded-xl p-5 relative overflow-hidden">
-              <p className="text-sm opacity-70">monobank | Universal Bank</p>
-
-              <div className="mt-6 tracking-widest text-lg">
-                5375 4411 4540 0954
-              </div>
-
-              <div className="flex justify-between items-end mt-6">
-                <div>
-                  <p className="text-xs opacity-60">VALID THRU</p>
-                  <p className="text-sm">06/24</p>
-                </div>
-
-                <div className="w-10 h-6 bg-red-500 rounded-full relative">
-                  <div className="absolute right-0 w-6 h-6 bg-yellow-400 rounded-full"></div>
-                </div>
-              </div>
-
-              <p className="mt-4 text-sm tracking-wide">
-                DONALD FLINCH CORTEZ
-              </p>
-            </div>
+            <BankCard />
 
             {/* Payment Card */}
             <div className="bg-white rounded-xl border border-gray-300 p-4">

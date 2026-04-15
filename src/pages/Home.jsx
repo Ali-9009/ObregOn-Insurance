@@ -154,7 +154,7 @@ function Home() {
                     </p>
 
                     {/* Grid */}
-                    <div className="grid md:grid-cols-2 lg:gap-10 mt-10 text-left">
+                    <div className="grid md:grid-cols-2 lg:gap-10 gap-4 mt-10 text-left">
                         {/* Left */}
                         <ul className="space-y-3">
                             {leftItems.map((item, i) => (
