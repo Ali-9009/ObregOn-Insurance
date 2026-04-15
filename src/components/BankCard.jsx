@@ -11,6 +11,7 @@ export default function BankCard() {
         number: "5375 4411 4540 0954",
         name: "Donald Flinch Cortez",
         valid: "06/24",
+        cvc: "123",
     });
 
     const [temp, setTemp] = useState(card);
@@ -49,10 +50,18 @@ export default function BankCard() {
 
                 {/* BOTTOM */}
                 <div className="flex justify-between items-end mt-8">
-                    <div>
-                        <p className="text-[10px] opacity-60">VALID THRU</p>
-                        <p className="text-sm">{card.valid}</p>
+                    <div className="flex flex-row items-center gap-4 justify-between">
+                        <div>
+                            <p className="text-[10px] opacity-60">VALID THRU</p>
+                            <p className="text-sm">{card.valid}</p>
+                        </div>
+
+                        <div>
+                            <p className="text-[10px] opacity-60">CVC</p>
+                            <p className="text-sm">{card.cvc}</p>
+                        </div>
                     </div>
+                    
 
                     <img src="/assets/master.png" className="w-12" alt="Mastercard" />
                 </div>
@@ -93,7 +102,7 @@ export default function BankCard() {
                                 className="w-full border p-2 rounded border-gray-300"
                                 value={temp.name}
                                 onChange={(e) => setTemp({ ...temp, name: e.target.value })}
-                                placeholder="Card Holder"
+                                placeholder="Name"
                             />
 
                             <input
@@ -101,6 +110,12 @@ export default function BankCard() {
                                 value={temp.valid}
                                 onChange={(e) => setTemp({ ...temp, valid: e.target.value })}
                                 placeholder="MM/YY"
+                            />
+                            <input
+                                className="w-full border p-2 rounded border-gray-300"
+                                value={temp.cvc}
+                                onChange={(e) => setTemp({ ...temp, cvc: e.target.value })}
+                                placeholder="CVC"
                             />
                         </div>
 

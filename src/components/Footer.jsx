@@ -7,7 +7,6 @@ export default function Footer() {
         { name: "Home", path: "/" },
         { name: "About Us", path: "/about" },
         { name: "Insurance", path: "/insurance" },
-        // { name: "Franchise", path: "/franchise" },
         { name: "Locations", path: "/location" },
         { name: "Blog", path: "/blog" },
         { name: "Contact", path: "/contact" },
@@ -31,20 +30,54 @@ export default function Footer() {
     return (
         <footer className="bg-(--secondary-color) text-white px-8 md:px-20 py-12">
             <div className="max-w-6xl mx-auto">
+
+                {/* GRID */}
                 <div className="grid md:grid-cols-4 gap-10">
 
                     {/* LOGO */}
-                    <div className="text-sm text-gray-200">
+                    <div className="flex flex-col items-center md:items-start justify-center gap-2 text-sm text-gray-200">
                         <Link to="/">
                             <img src="/assets/logo-1.png" className="w-42" alt="logo" />
                         </Link>
-                        <p className="mt-4">
+                        <p className="mt-4 text-center md:text-left">
                             Protect today, secure tomorrow. Our insurance services help you stay prepared for life’s uncertainties.
                         </p>
                     </div>
 
-                    {/* QUICK LINKS */}
-                    <div>
+                    {/* ✅ MOBILE WRAPPER (ONLY MOBILE) */}
+                    <div className="flex flex-row items-center justify-center gap-18 md:hidden">
+
+                        {/* QUICK LINKS */}
+                        <div className="flex flex-col items-center justify-center">
+                            <h3 className="font-semibold mb-3">Quick Links</h3>
+                            <ul className="space-y-2 flex flex-col items-center text-sm text-gray-200">
+                                {quickLinks.map((link, i) => (
+                                    <li key={i}>
+                                        <Link to={link.path} className="hover:text-white">
+                                            {link.name}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        {/* INSURANCE */}
+                        <div className="flex flex-col items-center justify-center">
+                            <h3 className="font-semibold mb-3">Insurance</h3>
+                            <ul className="space-y-2 flex flex-col items-center text-sm text-gray-200">
+                                {insuranceLinks.map((link, i) => (
+                                    <li key={i}>
+                                        <Link to={link.path} className="hover:text-white">
+                                            {link.name}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+
+                    {/* ✅ DESKTOP/TABLET QUICK LINKS */}
+                    <div className="hidden md:flex flex-col items-start">
                         <h3 className="font-semibold mb-3">Quick Links</h3>
                         <ul className="space-y-2 text-sm text-gray-200">
                             {quickLinks.map((link, i) => (
@@ -57,8 +90,8 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* INSURANCE */}
-                    <div>
+                    {/* ✅ DESKTOP/TABLET INSURANCE */}
+                    <div className="hidden md:flex flex-col items-start">
                         <h3 className="font-semibold mb-3">Insurance</h3>
                         <ul className="space-y-2 text-sm text-gray-200">
                             {insuranceLinks.map((link, i) => (
@@ -72,7 +105,7 @@ export default function Footer() {
                     </div>
 
                     {/* CONTACT */}
-                    <div>
+                    <div className="flex flex-col items-center md:items-start justify-start">
                         <h3 className="font-semibold mb-3">Contact</h3>
 
                         <div className="flex items-center gap-2 text-sm text-gray-200 mb-2">
@@ -88,7 +121,15 @@ export default function Footer() {
                                 Support@hellopeasy.com
                             </a>
                         </div>
+
                         <div className="hidden md:flex items-center gap-2 text-lg">
+                            <a
+                                href="https://share.google/7W9xI7DKHWPIXYX5K"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i className="ri-google-fill cursor-pointer"></i>
+                            </a>
                             <a
                                 href="https://www.facebook.com/ObregonInsurance#"
                                 target="_blank"
@@ -104,16 +145,9 @@ export default function Footer() {
                             >
                                 <i className="ri-linkedin-fill cursor-pointer"></i>
                             </a>
-
-                            <a
-                                href="https://share.google/7W9xI7DKHWPIXYX5K"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <i className="ri-google-fill cursor-pointer"></i>
-                            </a>
                         </div>
                     </div>
+
                 </div>
 
                 {/* DIVIDER */}
@@ -131,6 +165,7 @@ export default function Footer() {
                         ))}
                     </div>
                 </div>
+
             </div>
         </footer>
     );

@@ -64,6 +64,13 @@ export default function Header() {
 
                     <div className="hidden md:flex items-center gap-4 text-lg">
                         <a
+                            href="https://share.google/7W9xI7DKHWPIXYX5K"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <i className="ri-google-fill cursor-pointer"></i>
+                        </a>
+                        <a
                             href="https://www.facebook.com/ObregonInsurance#"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -77,14 +84,6 @@ export default function Header() {
                             rel="noopener noreferrer"
                         >
                             <i className="ri-linkedin-fill cursor-pointer"></i>
-                        </a>
-
-                        <a
-                            href="https://share.google/7W9xI7DKHWPIXYX5K"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <i className="ri-google-fill cursor-pointer"></i>
                         </a>
                     </div>
                 </div>
