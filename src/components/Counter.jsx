@@ -38,7 +38,7 @@ export default function CounterX({
     footerText = "",
 }) {
     return (
-        <section className={`w-full px-6 md:py-4 ${className}`}>
+        <section className={`w-full px-6 py-6 ${className}`}>
             <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-6 text-center">
                 {stats.map((item, index) => (
                     <div key={index} className="">
