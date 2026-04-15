@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { SquarePen, X } from "lucide-react";
-import mastercard from "../../public/assets/mastercard.png";
+
 import Button from "../components/PrimaryBtn"
 
 export default function BankCard() {
@@ -54,7 +54,7 @@ export default function BankCard() {
                         <p className="text-sm">{card.valid}</p>
                     </div>
 
-                    <img src={mastercard} className="w-12" alt="mastercard" />
+                    <img src="/assets/master.png" className="w-12" alt="Mastercard" />
                 </div>
 
                 {/* NAME */}
