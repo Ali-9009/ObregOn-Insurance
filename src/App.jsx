@@ -51,11 +51,11 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:id" element={<BlogDetail />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/forgotPassword" element={<ForgotPassword />} />
-            <Route path="/verifyCode" element={<VerifyCode />} />
-            <Route path="/setNew" element={<SetNew />} />
+            {/* <Route path="/login" element={<Login />} /> */}
+            {/* <Route path="/signup" element={<Signup />} /> */}
+            {/* <Route path="/forgotPassword" element={<ForgotPassword />} /> */}
+            {/* <Route path="/verifyCode" element={<VerifyCode />} /> */}
+            {/* <Route path="/setNew" element={<SetNew />} /> */}
             <Route path="/privacyPolicy" element={<PrivacyPolicy />} />
             <Route path="/dmca" element={<DMCA />} />
             <Route path="/homeInsurance" element={<HomeInsurance />} />
