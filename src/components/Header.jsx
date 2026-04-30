@@ -149,7 +149,6 @@ export default function Header() {
 
                     {/* Right */}
                     <div className="hidden lg:flex items-center gap-4">
-                        <Button to="/login" text="Login" />
                         <LanguageSelector />
                     </div>
 
@@ -211,9 +210,7 @@ export default function Header() {
                         </div>
                     ))}
 
-                    <div onClick={() => setOpen(false)}>
-                        <Button to="/login" text="Login" className="text-center" />
-                    </div>
+            
                 </div>
             </div>
 
