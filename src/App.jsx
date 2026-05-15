@@ -9,9 +9,9 @@ import Locations from './pages/Locations'
 import Contact from './pages/Contact'
 import Blog from './pages/Blog'
 import BlogDetail from './pages/BlogDetail'
-import Login from './pages/auth/Login'
-import Signup from './pages/auth/Signup'
-import ForgotPassword from './pages/auth/ForgotPassword'
+// import Login from './pages/auth/Login'
+// import Signup from './pages/auth/Signup'
+// import ForgotPassword from './pages/auth/ForgotPassword'
 import VerifyCode from './pages/auth/VerifyCode'
 import SetNew from './pages/auth/SetNew'
 import PrivacyPolicy from './pages/policy/PrivacyPolicy'
@@ -51,11 +51,11 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:id" element={<BlogDetail />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/forgotPassword" element={<ForgotPassword />} />
-            <Route path="/verifyCode" element={<VerifyCode />} />
-            <Route path="/setNew" element={<SetNew />} />
+            {/* <Route path="/login" element={<Login />} /> */}
+            {/* <Route path="/signup" element={<Signup />} /> */}
+            {/* <Route path="/forgotPassword" element={<ForgotPassword />} /> */}
+            {/* <Route path="/verifyCode" element={<VerifyCode />} /> */}
+            {/* <Route path="/setNew" element={<SetNew />} /> */}
             <Route path="/privacyPolicy" element={<PrivacyPolicy />} />
             <Route path="/dmca" element={<DMCA />} />
             <Route path="/homeInsurance" element={<HomeInsurance />} />
