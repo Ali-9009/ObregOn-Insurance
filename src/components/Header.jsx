@@ -54,7 +54,7 @@ export default function Header() {
                     <div className="flex items-center gap-6">
                         <a href="tel:3052656226" className="flex items-center gap-2">
                             <Phone size={16} />
-                            <span>305.265.6226</span>
+                            <span>(305) 265-6226</span>
                         </a>
                         <a href="mailto:obregoninsurance@gmail.com" className="flex items-center gap-2">
                             <Mail size={16} />
@@ -64,12 +64,13 @@ export default function Header() {
 
                     <div className="hidden md:flex items-center gap-4 text-lg">
                         <a
-                            href="https://share.google/7W9xI7DKHWPIXYX5K"
+                            href="https://www.instagram.com/"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <i className="ri-google-fill cursor-pointer"></i>
+                            <i className="ri-instagram-fill cursor-pointer"></i>
                         </a>
+
                         <a
                             href="https://www.facebook.com/ObregonInsurance#"
                             target="_blank"

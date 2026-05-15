@@ -1,9 +1,8 @@
 import { CheckCircle } from "lucide-react";
 
-import CounterX from "../components/Counter";
 import CoverageSection from "../components/CoverageSection";
 import Button from "../components/PrimaryBtn";
-import Testimonials from "../components/Testimonials";
+
 
 const stats1 = [
     { label: "Policies Written", value: 25347 },
@@ -66,7 +65,7 @@ function Home() {
                     <div className="grid grid-cols-1 lg:grid-cols-[50%_45%] gap-10 items-center text-white">
                         <div>
                             <p className="text-md text-gray-200">
-                                Trusted by families nationwide
+                                Independent insurance guidance, built around you
                             </p>
                             <h2 className="md:text-[55px] text-[30px] font-bold leading-tight mt-3">
                                 You Are Our Business.
@@ -87,42 +86,61 @@ function Home() {
 
                         <div className="lg:max-w-sm mx-auto w-full  relative p-6 sm:p-8 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-xl">
                             <h3 className="text-2xl md:text-3xl text-center mb-6">
-                                Schedule your Free Consultation today
+                                Let's Find the Right Coverage Together
                             </h3>
                             <form className="flex flex-col gap-4">
                                 <input
                                     type="text"
-                                    placeholder="First Name"
+                                    placeholder="Name"
                                     className="w-full px-4 h-12 rounded-full border border-gray-300 text-white 
-               placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-[#007AAE] transition-all duration-200"
-                                />
-                                <input
-                                    type="text"
-                                    placeholder="Last Name"
-                                    className="w-full px-4 h-12 rounded-full border border-gray-300 text-white 
-               placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-[#007AAE] transition-all duration-200"
-                                />
-                                <input
-                                    type="text"
-                                    placeholder="Email"
-                                    className="w-full px-4 h-12 rounded-full border border-gray-300 text-white 
-               placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-[#007AAE] transition-all duration-200"
-                                />
-                                <input
-                                    type="text"
-                                    placeholder="Phone"
-                                    className="w-full px-4 h-12 rounded-full border border-gray-300 text-white 
-               placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-[#007AAE] transition-all duration-200"
+        placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-[#007AAE] transition-all duration-200"
                                 />
 
-                                <Button text="Submit" />
+                                <input
+                                    type="text"
+                                    placeholder="Mobile"
+                                    className="w-full px-4 h-12 rounded-full border border-gray-300 text-white 
+        placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-[#007AAE] transition-all duration-200"
+                                />
+
+                                <input
+                                    type="email"
+                                    placeholder="Email"
+                                    className="w-full px-4 h-12 rounded-full border border-gray-300 text-white 
+        placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-[#007AAE] transition-all duration-200"
+                                />
+
+                                <div className="relative w-full">
+                                    <select
+                                        className="w-full px-4 pr-10 h-12 rounded-full border border-gray-300 text-gray-400 
+        bg-transparent appearance-none focus:outline-none focus:ring-1 
+        focus:ring-[#007AAE] transition-all duration-200"
+                                        defaultValue=""
+                                    >
+                                        <option value="" disabled>
+                                            Coverage Types
+                                        </option>
+                                        <option value="Auto">Auto</option>
+                                        <option value="Home">Home</option>
+                                        <option value="Flood">Flood</option>
+                                        <option value="Business">Business</option>
+                                        <option value="Boat">Boat</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+
+                                    <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none">
+                                        <i className="ri-arrow-down-s-line text-xl text-gray-400"></i>
+                                    </div>
+                                </div>
+
+                                <Button text="Get Started" />
                             </form>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section className="bg-blue-50 py-6 px-4">
+            <section className="hidden bg-blue-50 py-6 px-4">
                 <div className="max-w-6xl mx-auto text-center">
                     <p className="text-base sm:text-lg font-medium text-gray-700 mb-4">
                         Trusted by families across 50+ locations nationwide
@@ -209,29 +227,52 @@ function Home() {
                         className="mx-auto mb-6"
                     />
                     <h2 className="primary-heading mb-6">
-                        We sit on your side of the table.
+                        Coverage Options That Fit You
                     </h2>
-                    <p className="text-(--text-color) text-lg mb-8">
-                        Most agencies represent the carrier. We represent you. Our agents compare dozens of options to find the coverage that actually fits your life — not the one that pays them the highest commission.
+                    <p className="text-(--text-color) text-lg mb-4">
+                        As an independent agency, we're not tied to one carrier. That means we can compare rates and coverage across multiple insurance companies to find the protection that fits your needs and your budget.
                     </p>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto text-left text-(--text-color) text-lg">
+                    <p className="text-(--text-color) font-bold text-lg mb-8">
+                        We make the process simple:
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto text-left text-(--text-color) text-lg">
                         <div className="flex  items-start gap-2">
                             <CheckCircle className="text-(--secondary-color) mt-1" size={20} />
-                            <span>Licensed agents, real conversations</span>
+                            <span>We learn what matters most to you</span>
                         </div>
                         <div className="flex items-start gap-2">
                             <CheckCircle className="text-(--secondary-color) mt-1" size={20} />
-                            <span>Bilingual: English & Spanish</span>
+                            <span>We shop the market on your behalf</span>
                         </div>
                         <div className="flex items-start gap-2">
                             <CheckCircle className="text-(--secondary-color) mt-1" size={20} />
-                            <span>50+ carriers compared for you</span>
+                            <span>We explain your options in plain language</span>
                         </div>
                         <div className="flex items-start gap-2">
                             <CheckCircle className="text-(--secondary-color) mt-1" size={20} />
-                            <span>Claims advocacy when it counts</span>
+                            <span>You choose what feels right, confidently</span>
                         </div>
                     </div>
+                </div>
+            </section >
+
+            <section className="py-12">
+                <div className="max-w-4xl mx-auto text-center px-4">
+                    <h2 className="primary-heading mb-6">
+                        Local. Trusted. Experienced.
+                    </h2>
+                    <p className="text-(--text-color) text-lg font-bold mb-8">
+                        Here for Our Community Since 2005
+                    </p>
+
+                    <p className="text-(--text-color) text-lg mb-4">
+                        Obregon Insurance is a bilingual, independent insurance agency based in Miami. For nearly two decades, we've helped our community protect what matters most: their families, their businesses, and their futures.
+                    </p>
+
+                    <p className="text-(--text-color) text-lg mb-8">
+                        We know insurance can feel confusing or impersonal. That's why we lead with clarity and respect. Whether you're reviewing your auto policy, securing homeowners coverage, or insuring your business, you can count on us to make it make sense.
+                    </p>
+                    
                 </div>
             </section >
 
@@ -287,14 +328,14 @@ function Home() {
                 </div>
             </section>
 
-            <CounterX
+            {/* <CounterX
                 stats={stats1}
                 numberClass="text-(--secondary-color)"
                 labelClass="text-(--text-color)"
                 footerText="4.8 out of 5 from 2,100+ reviews"
-            />
+            /> */}
 
-            <Testimonials />
+            {/* <Testimonials /> */}
         </>
     );
 }

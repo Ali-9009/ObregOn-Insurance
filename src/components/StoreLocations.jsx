@@ -1,4 +1,4 @@
-import { MapPinned, Search, Clock8 } from "lucide-react";
+import { MapPinned, Search, Clock8, Smartphone } from "lucide-react";
 import Button from "./PrimaryBtn";
 import { useState } from "react";
 
@@ -66,7 +66,15 @@ const StoreLocations = () => {
 
                                     <p className="flex gap-2 items-center text-center text-sm text-gray-500">
                                         <Clock8 size={18} />
-                                        <span>Mon-Fri 9:00 AM – 5:00 PM</span>
+                                        <span>Mon - Thur 9:30 AM - 5:30 PM</span>
+                                    </p>
+                                    <p className="flex gap-2 items-center text-center text-sm text-gray-500">
+                                        <Clock8 size={18} />
+                                        <span>Fridays 9:30 - 5:00 PM</span>
+                                    </p>
+                                    <p className="flex gap-2 items-center text-center text-sm text-gray-500">
+                                        <Smartphone size={18} />
+                                        <span>(305) 265-6226</span>
                                     </p>
                                 </div>
                             </div>
@@ -77,19 +85,27 @@ const StoreLocations = () => {
                         {/* Card 2 */}
                         <div className="w-full border border-gray-200 rounded-xl p-6 shadow-sm flex flex-col justify-center items-center">
                             <div>
-                                <p className="text-lg font-semibold text-center text-(--secondary-color)">
+                                <p className="text-lg text-center font-semibold text-(--secondary-color)">
                                     Obregon Insurance Miami
                                 </p>
 
                                 <div className="flex flex-col items-center justify-center gap-3 mt-4">
-                                    <p className="flex gap-2 items-start text-sm text-gray-500">
+                                    <p className="flex gap-2 items-center text-center text-sm text-gray-500">
                                         <MapPinned size={18} />
-                                        <span>7875 Bird Road Suite 211 Miami, FL 33155</span>
+                                        <span>1740 SW 57 Ave, Miami, FL 33155</span>
                                     </p>
 
-                                    <p className="flex gap-2 items-start text-sm text-gray-500">
+                                    <p className="flex gap-2 items-center text-center text-sm text-gray-500">
                                         <Clock8 size={18} />
-                                        <span>Mon-Fri 9:00 AM – 5:00 PM</span>
+                                        <span>Mon - Thur 9:30 AM - 5:30 PM</span>
+                                    </p>
+                                    <p className="flex gap-2 items-center text-center text-sm text-gray-500">
+                                        <Clock8 size={18} />
+                                        <span>Fridays 9:30 - 5:00 PM</span>
+                                    </p>
+                                    <p className="flex gap-2 items-center text-center text-sm text-gray-500">
+                                        <Smartphone size={18} />
+                                        <span>(305) 265-6226</span>
                                     </p>
                                 </div>
                             </div>

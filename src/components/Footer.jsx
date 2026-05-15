@@ -110,26 +110,27 @@ export default function Footer() {
 
                         <div className="flex items-center gap-2 text-sm text-gray-200 mb-2">
                             <Phone size={14} />
-                            <a href="tel:+17868842070" className="hover:text-white">
-                                (786) 884-2070
+                            <a href="tel:(305) 265-6226" className="hover:text-white">
+                                (305) 265-6226
                             </a>
                         </div>
 
                         <div className="flex items-center gap-2 text-sm text-gray-200 mb-2">
                             <Mail size={14} />
-                            <a href="mailto:Support@hellopeasy.com" className="hover:text-white">
-                                Support@hellopeasy.com
+                            <a href="mailto:obregoninsurance@gmail.com" className="hover:text-white">
+                                obregoninsurance@gmail.com
                             </a>
                         </div>
 
-                        <div className="hidden md:flex items-center gap-2 text-lg">
+                        <div className="hidden md:flex items-center gap-4 text-lg">
                             <a
-                                href="https://share.google/7W9xI7DKHWPIXYX5K"
+                                href="https://www.instagram.com/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <i className="ri-google-fill cursor-pointer"></i>
+                                <i className="ri-instagram-fill cursor-pointer"></i>
                             </a>
+
                             <a
                                 href="https://www.facebook.com/ObregonInsurance#"
                                 target="_blank"
