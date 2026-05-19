@@ -32,7 +32,7 @@ export default function Header() {
         },
         { name: "Locations", path: "/location" },
         { name: "Blog", path: "/blog" },
-        { name: "Contact", path: "/contact" },
+        { name: "Contact", path: "/location#contact" },
     ];
 
     // Sticky scroll

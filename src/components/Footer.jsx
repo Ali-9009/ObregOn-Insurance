@@ -35,11 +35,11 @@ export default function Footer() {
                 <div className="grid md:grid-cols-4 gap-10">
 
                     {/* LOGO */}
-                    <div className="flex flex-col items-center md:items-start justify-center gap-2 text-sm text-gray-200">
+                    <div className="flex flex-col items-center md:items-start justify-start gap-2 text-sm text-gray-200">
                         <Link to="/">
                             <img src="/assets/logo-1.png" className="w-42" alt="logo" />
                         </Link>
-                        <p className="mt-4 text-center md:text-left">
+                        <p className="hidden mt-4 text-center md:text-left">
                             Protect today, secure tomorrow. Our insurance services help you stay prepared for life’s uncertainties.
                         </p>
                     </div>

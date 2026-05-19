@@ -2,10 +2,10 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import Button from "../components/PrimaryBtn";
 
 
-function Contact() {
+export default function Contact() {
     return (
         <>
-            <section className="bg-(--secondary-color) text-white">
+            <section className="hidden bg-(--secondary-color) text-white">
                 <div className="max-w-4xl mx-auto px-6 py-12 text-center">
 
                     <h2 className="text-[30px] md:text-[45px] font-bold leading-tight mt-3">
@@ -100,4 +100,3 @@ function Contact() {
     );
 }
 
-export default Contact;
