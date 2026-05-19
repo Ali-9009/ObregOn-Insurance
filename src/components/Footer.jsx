@@ -9,7 +9,7 @@ export default function Footer() {
         { name: "Insurance", path: "/insurance" },
         { name: "Locations", path: "/location" },
         { name: "Blog", path: "/blog" },
-        { name: "Contact", path: "/contact" },
+        { name: "Contact", path: "/location#contact" },
     ];
 
     const insuranceLinks = [
